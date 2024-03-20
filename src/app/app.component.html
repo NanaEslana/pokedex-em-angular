@@ -1,7 +1,7 @@
 <app-topbar></app-topbar>
 <app-banner></app-banner>
 <main>
-    <app-cadastro></app-cadastro>
-    
+    <app-cadastro [pokemon]="pokemon"></app-cadastro>
+    <app-pokemon-list (onSelectPokemon)="pokemon = $event"></app-pokemon-list>
 </main>
 <app-footer></app-footer>

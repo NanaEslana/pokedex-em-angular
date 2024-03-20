@@ -1,1 +1,8 @@
-h2>Lista de POKEMONS</h2>
+<section id="cards">
+    <h2>Lista de POKEMONS</h2>
+    <div id="pokemons">
+        @for(pokemon of pokemons; track pokemon) {
+            <app-pokemon [pokemon]="pokemon" (onClick)="select($event)"></app-pokemon>
+        }
+    </div>
+</section> 

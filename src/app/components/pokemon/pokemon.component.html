@@ -1,1 +1,8 @@
-<p>pokemon works!</p>
+<div class="card">
+    <img src="{{pokemon?.imagem}}" alt="">
+    <h3> {{pokemon.nome}} </h3>
+    <p class="descricao"> {{pokemon?.descricao}} </p>
+    <p>Tipo: {{pokemon?.tipo}} </p> 
+    <a id="editar" (click)="select()"> Editar</a>
+    <a id="apagar"href="/delete/{{pokemon?.id}}"> Excluir</a>
+</div>
