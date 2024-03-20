@@ -1,0 +1,26 @@
+<section id="cadastro">
+
+    <img src="https://static.wikia.nocookie.net/pokepediabr/images/3/38/Pok%C3%A9dex_Kanto.png/revision/latest?cb=20131224014121&path-prefix=pt-br" alt="Pokedex">
+    <div>
+        
+            <h2>{{ pokemon == undefined ? 'Cadastre um novo POKEMON!' : 'Atualize seu POKEMON!'}}</h2>
+
+            <form>
+                <input type="hidden" id="id" name="id" value="<%= pokemon.id %>">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome">
+
+                <label for="descricao"> Descrição:</label>
+                <input type="text" id="descricao" name="descricao">
+
+                <label for="tipo">Tipo:</label>
+                <input type="text" id="tipo" name="tipo">
+
+                <label for="imagem">Link da imagem:</label>
+                <input type="text" id="imagem" name="imagem">
+
+                <button id="btnCadastrar" type="button"> {{ pokemon == undefined ? 'Cadastrar': 'Atualizar'}} </button>
+
+            </form>
+    </div>
+</section>
