@@ -1,26 +1,19 @@
-<section id="cadastro">
-
-    <img src="https://static.wikia.nocookie.net/pokepediabr/images/3/38/Pok%C3%A9dex_Kanto.png/revision/latest?cb=20131224014121&path-prefix=pt-br" alt="Pokedex">
-    <div>
-        
-            <h2>{{ pokemon == undefined ? 'Cadastre um novo POKEMON!' : 'Atualize seu POKEMON!'}}</h2>
-
-            <form>
-                <input type="hidden" id="id" name="id" value="<%= pokemon.id %>">
-                <label for="nome">Nome:</label>
-                <input type="text" id="nome" name="nome" [formControl]="nome">
-
-                <label for="descricao"> Descrição:</label>
-                <input type="text" id="descricao" name="descricao" [formControl]="descricao">
-
-                <label for="tipo">Tipo:</label>
-                <input type="text" id="tipo" name="tipo" [formControl]="tipo">
-
-                <label for="imagem">Link da imagem:</label>
-                <input type="text" id="imagem" name="imagem" [formControl]="imagem">
-
-                <button id="btnCadastrar" type="button" (click)="save()"> {{ pokemon == undefined ? 'Cadastrar': 'Atualizar'}} </button>
-
-            </form>
+<p-toast></p-toast>
+<section class="container flex align-items-center flex-column p-3 lg:flex-row lg:p-8 ">
+    <img class="col-6 " src="assets/cadastro-cover.png" alt="Pokedex">
+    <div class="col-6">
+      <h2 class="col-12">{{ pokemon == undefined ? 'Cadastre um novo POKEMON!' : 'Atualize seu POKEMON!'}}</h2>
+        <form [formGroup]="form" (ngSubmit)="save()">
+          <p-floatLabel>
+            <input id="username" type="text" pInputText formControlName="nome" />
+            <label for="username">Qual seu Pokémon?</label>
+          </p-floatLabel>
+          <p-editor formControlName="descricao" [style]="{ height: '120px'}"></p-editor>
+          <div class="flex justify-content-center pt-4">
+            <p-dropdown class="mr-4" [options]="types" formControlName="tipo" optionLabel="name" optionValue="value" [showClear]="true" placeholder="Qual tipo do Pokémon"></p-dropdown>
+            <p-fileUpload mode="basic" chooseLabel="Choose" name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onUpload($event)"></p-fileUpload>
+          </div>
+          <button type="submit" pButton pRipple label="Cadastrar" class="p-button-success mt-4"></button>
+        </form>
     </div>
 </section>

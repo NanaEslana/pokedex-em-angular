@@ -1,1 +1,5 @@
-<img src="https://cdn.unifiedcommerce.com/content/product/large/079346093755.jpg" alt="Banner">
+<p-galleria [value]="images" [autoPlay]="true" [numVisible]="5" [circular]="true" [showItemNavigators]="true" [showThumbnails]="false" [responsiveOptions]="responsiveOptions">
+  <ng-template pTemplate="item" let-item>
+    <img [src]="item.itemImageSrc" style="width: 100%; display: block;" />
+  </ng-template>
+</p-galleria>

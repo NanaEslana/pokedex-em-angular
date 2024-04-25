@@ -12,4 +12,8 @@ export class PokemonComponent {
   select() {
     this.onClick.emit(this.pokemon)
   }
+
+  delete(){
+
+  }
 }
