@@ -1,8 +1,11 @@
-<div class="card">
-    <img src="{{pokemon?.imagem}}" alt="">
+<div class="container">
+  <div class="card">
+    <img src="{{pokemon?.image}}" alt="">
     <h3 > {{pokemon.nome}} </h3>
-    <p class="descricao"> {{pokemon?.descricao}} </p>
+    <p class="description"> {{pokemon?.description}} </p>
     <p>Tipo: {{pokemon?.tipo}} </p>
     <a id="editar" (click)="select()"> Editar</a>
     <a id="apagar" (click)="delete()"> Excluir</a>
+  </div>
 </div>
+

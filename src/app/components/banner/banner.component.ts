@@ -22,9 +22,7 @@ export class BannerComponent {
       numVisible: 1
     }
   ];
-
   constructor(private imagesServices: ImagesService) {}
-
   ngOnInit() {
     this.imagesServices.list().subscribe((images) => {
       this.images = images;

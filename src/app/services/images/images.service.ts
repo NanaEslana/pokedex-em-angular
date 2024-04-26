@@ -14,3 +14,6 @@ export class ImagesService {
   }
 
 }
+
+export class ImageService {
+}

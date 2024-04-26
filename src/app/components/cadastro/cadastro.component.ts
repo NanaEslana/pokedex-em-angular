@@ -4,6 +4,7 @@ import { PokemonService } from '../../services/pokemon/pokemon.service';
 import { firstValueFrom } from 'rxjs';
 import {UploadEvent} from "primeng/fileupload";
 import {MessageService} from "primeng/api";
+import {FileUploadEvent} from "primeng/fileupload/fileupload.interface";
 
 
 interface Type {
@@ -22,9 +23,9 @@ export class CadastroComponent implements OnChanges {
   form = this.formBuild.group({
     id: [],
     nome: ['', [Validators.required]],
-    descricao: ['', [Validators.required]],
+    description: ['', [Validators.required]],
     tipo: ['', [Validators.required]],
-    imagem: ['', [Validators.required]],
+    image: ['', [Validators.required]],
   })
 
   constructor(private pokemonService: PokemonService, private messageService: MessageService, private readonly formBuild: FormBuilder) {}
@@ -33,7 +34,6 @@ export class CadastroComponent implements OnChanges {
 
     if (changes['pokemon']) {
       if (changes['pokemon'].currentValue) {
-        console.log(changes['pokemon'].currentValue);
         this.form.patchValue(changes['pokemon'].currentValue)
       } else {
         this.form.reset()
@@ -44,12 +44,11 @@ export class CadastroComponent implements OnChanges {
   text: string | undefined;
 
   types: Type[] | undefined;
-  selectedCity: Type | undefined;
 
   ngOnInit() {
     this.types = [
-      { name: 'Normal.' , value: 'normal'},
-      { name: 'Fire (fogo)', value: 'fire'},
+      { name: 'Normal. (normal)' , value: 'normal'},
+      { name: 'Fire (fogo/fire)', value: 'fire'},
       { name: 'Water (água)', value: 'water'},
       { name: 'Grass (grama)' , value: 'grass'},
       { name: 'Flying (voador)', value: 'flying'},
@@ -59,8 +58,20 @@ export class CadastroComponent implements OnChanges {
     ];
   }
 
-  onUpload(event: UploadEvent) {
-    this.messageService.add({ severity: 'info', summary: 'Success', detail: 'File Uploaded with Basic Mode' });
+  async onUpload(event: FileUploadEvent) {
+    this.form.patchValue({
+      image: await this.getBase64(event.files[0])
+    })
+    this.messageService.add({ severity: 'info', summary: 'Enviada', detail: 'Imagem enviada com sucesso!' });
+  }
+
+  async getBase64(file: File): Promise<string> {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = error => reject(error);
+    });
   }
 
   async save() {

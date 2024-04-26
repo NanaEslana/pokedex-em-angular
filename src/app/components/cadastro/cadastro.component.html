@@ -1,19 +1,33 @@
 <p-toast></p-toast>
 <section class="container flex align-items-center flex-column p-3 lg:flex-row lg:p-8 ">
-    <img class="col-6 " src="assets/cadastro-cover.png" alt="Pokedex">
-    <div class="col-6">
+    <img class="col-6 " src="assets/cadastro%20img.png" alt="Pokedex">
+    <div class="col-10 lg:col-6 ">
       <h2 class="col-12">{{ pokemon == undefined ? 'Cadastre um novo POKEMON!' : 'Atualize seu POKEMON!'}}</h2>
         <form [formGroup]="form" (ngSubmit)="save()">
-          <p-floatLabel>
-            <input id="username" type="text" pInputText formControlName="nome" />
-            <label for="username">Qual seu Pokémon?</label>
-          </p-floatLabel>
-          <p-editor formControlName="descricao" [style]="{ height: '120px'}"></p-editor>
-          <div class="flex justify-content-center pt-4">
-            <p-dropdown class="mr-4" [options]="types" formControlName="tipo" optionLabel="name" optionValue="value" [showClear]="true" placeholder="Qual tipo do Pokémon"></p-dropdown>
-            <p-fileUpload mode="basic" chooseLabel="Choose" name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" accept="image/*" maxFileSize="1000000" (onUpload)="onUpload($event)"></p-fileUpload>
+          <div class="formgrid grid align-items-center">
+            <div class="field col-12 md:col-6">
+              <label for="firstname6">Seu Pokémon</label>
+              <input id="firstname6" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" formControlName="nome">
+            </div>
+            <div class="field col-12 md:col-6">
+              <label>Habilidades</label>
+              <p-dropdown class="mr-4 " [options]="types" formControlName="tipo" optionLabel="name" optionValue="value" [showClear]="true" placeholder="Tipo do Pokémon"></p-dropdown>
+            </div>
+            <div class="field col-12">
+              <label >Descriçao</label>
+              <p-editor formControlName="description" [style]="{ height: '120px'}"></p-editor>
+            </div>
+            <div class="field col-12 md:col-6">
+              <label>Imagem</label>
+              <p-fileUpload mode="basic" chooseLabel="Enviar Imagem" name="demo[]" url="https://www.primefaces.org/cdn/api/upload.php" accept="image/*" maxFileSize="1000000"  [auto]="true" (onUpload)="onUpload($event)" ></p-fileUpload>
+            </div>
+            <div  class="field col-12 md:col-3">
+              <button type="submit" pButton pRipple label="Cadastrar" class="p-button-success mt-4"></button>
+            </div>
+            <div class=" field col-12 md:col-3">
+              <button type="reset" pButton pRipple label="Cancelar" class="p-button-success mt-4"></button>
+            </div>
           </div>
-          <button type="submit" pButton pRipple label="Cadastrar" class="p-button-success mt-4"></button>
         </form>
     </div>
 </section>

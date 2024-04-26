@@ -19,7 +19,7 @@ import {AboutComponent} from "./about/about.component";
 import {MessageService} from "primeng/api";
 import { DropdownModule } from 'primeng/dropdown';
 import { EditorModule } from 'primeng/editor';
-import {FloatLabelModule} from "primeng/floatlabel";
+import { InputTextModule } from 'primeng/inputtext';
 @NgModule({
   declarations: [
     TopbarComponent,
@@ -29,7 +29,8 @@ import {FloatLabelModule} from "primeng/floatlabel";
     PokemonListComponent,
     PokemonComponent,
     CuriositiesComponent,
-    AboutComponent
+    AboutComponent,
+
   ],
   exports: [
     TopbarComponent,
@@ -52,7 +53,7 @@ import {FloatLabelModule} from "primeng/floatlabel";
     DropdownModule,
     FormsModule,
     EditorModule,
-    FloatLabelModule,
+    InputTextModule,
   ],
   providers: [ImagesService, MessageService]
 })
