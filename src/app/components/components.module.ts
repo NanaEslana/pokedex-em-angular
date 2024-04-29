@@ -20,6 +20,9 @@ import {MessageService} from "primeng/api";
 import { DropdownModule } from 'primeng/dropdown';
 import { EditorModule } from 'primeng/editor';
 import { InputTextModule } from 'primeng/inputtext';
+import { AccordionModule } from 'primeng/accordion';
+
+
 @NgModule({
   declarations: [
     TopbarComponent,
@@ -54,6 +57,7 @@ import { InputTextModule } from 'primeng/inputtext';
     FormsModule,
     EditorModule,
     InputTextModule,
+    AccordionModule
   ],
   providers: [ImagesService, MessageService]
 })

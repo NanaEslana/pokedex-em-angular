@@ -1,4 +1,4 @@
-<p-galleria [value]="images" [autoPlay]="true" [numVisible]="5" [circular]="true" [showItemNavigators]="true" [showThumbnails]="false" [responsiveOptions]="responsiveOptions">
+<p-galleria class="banner" [value]="images" [autoPlay]="true" [numVisible]="5" [circular]="true" [showItemNavigators]="true" [showThumbnails]="false" [responsiveOptions]="responsiveOptions">
   <ng-template pTemplate="item" let-item>
     <img [src]="item.itemImageSrc" style="width: 100%; display: block;" />
   </ng-template>

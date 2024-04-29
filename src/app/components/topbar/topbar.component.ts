@@ -13,6 +13,7 @@ export class TopbarComponent implements OnInit{
       {label: 'CURIOSIDADE'},
       {label: 'SOBRE'},
       {label: 'POKÉDEX'},
+      {label: 'GERAÇÕES'},
       {label: 'CADASTRO'},
       {label: 'POKEMONS'},
     ]
