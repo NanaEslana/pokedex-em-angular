@@ -7,10 +7,12 @@ import {PokedexComponent} from "./components/pokedex/pokedex.component";
 import {GenerationsComponent} from "./components/generations/generations.component";
 import {PokedexService} from "./services/pokedex/pokedex.service";
 import {ScrollTopModule} from "primeng/scrolltop";
+import {ExploreComponent} from "./components/explore/explore.component";
+import {JogosComponent} from "./components/jogos/jogos.component";
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ComponentsModule, HttpClientModule, PokedexComponent, GenerationsComponent, ScrollTopModule],
+  imports: [RouterOutlet, ComponentsModule, HttpClientModule, PokedexComponent, GenerationsComponent, ScrollTopModule, ExploreComponent, JogosComponent],
   providers:[PokemonService, PokedexService],
   templateUrl: './app.component.html',
   styleUrl: './app.component.sass'

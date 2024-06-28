@@ -7,11 +7,14 @@
           <div class="formgrid grid align-items-center">
             <div class="field col-12 md:col-6">
               <label for="firstname6">Seu Pokémon</label>
-              <input id="firstname6" type="text" class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full" formControlName="nome">
+              <input id="firstname6" type="text"
+               class="text-base text-color surface-overlay p-2 border-1 border-solid surface-border
+               border-round appearance-none outline-none focus:border-primary w-full" formControlName="nome">
             </div>
             <div class="field col-12 md:col-6">
               <label>Habilidades</label>
-              <p-dropdown class="mr-4 " [options]="types" formControlName="tipo" optionLabel="name" optionValue="value" [showClear]="true" placeholder="Tipo do Pokémon"></p-dropdown>
+              <p-dropdown class="mr-4 " [options]="types" formControlName="tipo"
+              optionLabel="name" optionValue="value" [showClear]="true" placeholder="Tipo do Pokémon"></p-dropdown>
             </div>
             <div class="field col-12">
               <label >Descriçao</label>
